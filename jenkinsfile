@@ -1,11 +1,27 @@
 pipeline{
-agent any
-stages{
-stage('Build'){
-steps{
-echo "Build done"
-}
-}
 
-}
+agent any
+      stages{
+			stage('Build'){
+				steps{
+					echo "Building"
+					bat "mvn clean"
+				}
+			}
+			
+			stage('Test'){
+				steps{
+					echo "Test Started"
+					bat "mvn test"
+				}
+			}
+			
+			stage('Compile'){
+				steps{
+					echo "Compiling"
+					bat "mvn compile"
+				}
+			}
+
+			}
 }
