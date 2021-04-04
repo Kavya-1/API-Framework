@@ -29,11 +29,15 @@ agent any
 			
 			always{
 			
+			sh("sleep 1m")
+			
+			sh("ls -alrt RestAssuredAutomationFramework/test-output")
+			
 			publishHTML(target: [
                         allowMissing:false,
                         alwaysLinkToLastBuild: false,
                         keepAll:true,
-                        reportDir: '/test-output',
+                        reportDir: 'RestAssuredAutomationFramework/test-output',
                         reportFiles: 'index.html',
                         reportName: 'Automation Report'
                     ])
